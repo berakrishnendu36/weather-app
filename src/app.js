@@ -4,6 +4,8 @@ const forecast_new = require('./utils/forecast_new')
 const geocode_rev = require('./utils/geocode_rev')
 const hcast = require('./utils/hcast')
 
+const port = process.env.PORT || 3000
+
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -108,6 +110,6 @@ app.get('/weather/hdata', (req, res) => {
 //     })
 // })
 
-app.listen(3000, () => {
-    console.log('Server up on port 3000')
+app.listen(port, () => {
+    console.log('Server up on port ' + port)
 })

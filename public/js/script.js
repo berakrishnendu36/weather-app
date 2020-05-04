@@ -90,7 +90,7 @@ bgChange()
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-            fetch('http://localhost:3000/weather/rdata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
+            fetch('/weather/rdata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
                 response.json().then((data) => {
                     if (data.error) {
                         console.log(data.error)
@@ -102,7 +102,7 @@ function getLocation() {
                     }
                 })
             })
-            fetch('http://localhost:3000/weather/ldata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
+            fetch('/weather/ldata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
                 response.json().then((data) => {
                     if (data.error) {
                         console.log(data.error)
@@ -113,7 +113,7 @@ function getLocation() {
                     }
                 })
             })
-            fetch('http://localhost:3000/weather/hdata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
+            fetch('/weather/hdata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
                 response.json().then((data) => {
                     if (data.error) {
                         console.log(data.error)
@@ -143,7 +143,7 @@ getLocation()
 
 function search() {
     var addr = document.getElementById("srch").value;
-    fetch('http://localhost:3000/weather/sdata?addr=' + encodeURIComponent(addr)).then((response) => {
+    fetch('/weather/sdata?addr=' + encodeURIComponent(addr)).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 console.log(data.error)
@@ -161,7 +161,7 @@ function search() {
                 for (let i = 0; i < tmp.length; i++) {
                     tmp[i].style.display = "none"
                 }
-                fetch('http://localhost:3000/weather/rdata?latitude=' + encodeURIComponent(data.latitude) + '&longitude=' + encodeURIComponent(data.longitude)).then((response) => {
+                fetch('/weather/rdata?latitude=' + encodeURIComponent(data.latitude) + '&longitude=' + encodeURIComponent(data.longitude)).then((response) => {
                     response.json().then((rdata) => {
                         if (rdata.error) {
                             console.log(rdata.error)
@@ -174,7 +174,7 @@ function search() {
                     })
                 })
 
-                fetch('http://localhost:3000/weather/hdata?latitude=' + encodeURIComponent(data.latitude) + '&longitude=' + encodeURIComponent(data.longitude)).then((response) => {
+                fetch('/weather/hdata?latitude=' + encodeURIComponent(data.latitude) + '&longitude=' + encodeURIComponent(data.longitude)).then((response) => {
                     response.json().then((hdata) => {
                         if (hdata.error) {
                             console.log(hdata.error)
