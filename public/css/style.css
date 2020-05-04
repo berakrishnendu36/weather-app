@@ -1,0 +1,701 @@
+body{
+    /* background: linear-gradient(80deg, #8679cf, #6b6dfa, #7fe0ec);
+    background-size: 600% 600%; */
+
+    /* -webkit-animation: gradientday 10s ease infinite;
+    -moz-animation: gradientday 10s ease infinite;
+    animation: gradientday 10s ease infinite; */
+    width:100%;
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #283E51, #0A2342);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #283E51, #0A2342); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -olinear-gradient(to top, #283E51, #0A2342); 
+    height: 100vh;
+
+    font-family: 'Roboto', sans-serif;
+}
+.stars {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+  background:url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  z-index:0;
+}
+/* @-webkit-keyframes gradientday {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradientday {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradientday { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+} */
+
+
+.navbar{
+    background-color: rgb(206, 232, 255);
+    box-shadow: 2px 2px 8px #000000;
+    position: fixed;
+    opacity: 0.9;
+    width: 100%;
+    z-index: 4;
+}
+.nav-item{
+    display: inline-block;
+    position: relative;
+    padding: 0px 5px;
+}
+.nav-item:hover{
+    color: black;
+    background-color: white;
+}
+.input-group{
+    max-width: auto;
+}
+.form-control{
+    max-width:300px;
+    margin: 0 0 0 0;
+    background-color: wheat;
+    transition: 1s ease-in-out;
+    border-radius: 15px;
+}
+
+.form-control:focus{
+    margin: 0 0 0 20%;
+    max-width:100%;
+    background-color: rgb(255, 247, 234);
+}
+
+#load{
+  display: block;
+  text-emphasis: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 5px #000000;
+  animation: fade 2s ease-in-out infinite;
+}
+@keyframes fade{
+  0%{opacity: 1;}
+  50%{opacity: 0;}
+  100%{opacity: 1;}
+}
+.main{
+    /* min-height: 500px; */
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 8px #000000;
+    border-radius: 40px;
+    padding: 20px;
+}
+.main i{
+    display: inline-block;
+    padding:5px;
+    color: white;
+    font-size: x-large;
+    text-shadow: 1px 1px 5px #6161619d;
+}
+.main #location{
+    display: inline-block;
+    color: white;
+    text-shadow: 1px 1px 5px #000000;
+}
+
+
+
+/* Animated Icons */
+  .weather-animations {
+    display: inline-block;
+    /* border: 1px solid #000000; */
+  }
+  .weather-animations .row {
+    display: flex;
+    align-items: center;
+    height: 200px;
+    width: auto;
+    padding: 20px;;
+  }
+  .weather {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    padding: 20px;
+  }
+  body .weather-animations .row .weather .rays {
+    background: #fec601;
+    position: absolute;
+    z-index: 0;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    transform: rotate(20deg);
+    animation: sunRotate 10s infinite linear;
+  }
+  body .weather-animations .row .weather .rays:after {
+    content: "";
+    background: #fec601;
+    position: absolute;
+    z-index: 0;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform: rotate(40deg);
+  }
+  body .weather-animations .row .weather .sun {
+    display: relative;
+    background: -webkit-linear-gradient(#fec601, #ea7317);
+    background: -moz-linear-gradient(#fec601, #ea7317);
+    background: -ms-linear-gradient(#fec601, #ea7317);
+    background: -o-linear-gradient(#fec601, #ea7317);
+    background: linear-gradient(#fec601, #ea7317);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+  }
+  body .weather-animations .row .weather .cloud {
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+    position: relative;
+    z-index: 2;
+  }
+  body .weather-animations .row .weather .cloud:before {
+    content: "";
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 2;
+  }
+  body .weather-animations .row .weather .cloud:after {
+    content: "";
+    position: absolute;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+    z-index: 3;
+  }
+  body .weather-animations .row .weather .raindrop {
+    width: 5px;
+    height: 5px;
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+    border: 3px solid #0a81d1;
+    background: #0a81d1;
+    display: inline-block;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: relative;
+    backface-visibility: hidden;
+  }
+  body .weather-animations .row .weather .star {
+    margin: 50px 0;
+    position: relative;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #ece4b7;
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    transform: rotate(35deg);
+    -webkit-transform: scale(0.15);
+    -moz-transform: scale(0.15);
+    -ms-transform: scale(0.15);
+    -o-transform: scale(0.15);
+    transform: scale(0.15);
+  }
+  body .weather-animations .row .weather .star:before {
+    content: "";
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 80px solid #ece4b7;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -45px;
+    left: -60px;
+    display: block;
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -ms-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+  }
+  body .weather-animations .row .weather .star:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 3px;
+    left: -105px;
+    width: 0px;
+    height: 0px;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #ece4b7;
+    border-left: 100px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform: rotate(-70deg);
+    -ms-transform: rotate(-70deg);
+    -o-transform: rotate(-70deg);
+    transform: rotate(-70deg);
+  }
+  body .weather-animations .row .desc {
+    position: relative;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: "Pacifico", cursive;
+  }
+  
+  #rays {
+    width: 100px;
+    height: 100px;
+    top: 35px;
+    left: 25px;
+  }
+  
+  #rays:after {
+    height: 100px;
+    width: 100px;
+    top: 0px;
+    left: 0px;
+  }
+  
+  #sun {
+    width: 100px;
+    height: 100px;
+    top: 35px;
+    left: 25px;
+  }
+  
+  #miniRays {
+    width: 75px;
+    height: 75px;
+    top: 25px;
+    left: 75px;
+  }
+  
+  #miniRays:after {
+    height: 75px;
+    width: 75px;
+    top: 0px;
+    left: 0px;
+  }
+  
+  #miniSun {
+    width: 75px;
+    height: 75px;
+    top: 25px;
+    left: 75px;
+  }
+  
+  #miniCloud {
+    background-color: #dbe4ee;
+    width: 75px;
+    height: 75px;
+    top: 40px;
+    animation: cloudFloat 5s infinite linear;
+  }
+  
+  #miniCloud:before {
+    background-color: #dbe4ee;
+    width: 50px;
+    height: 50px;
+    top: 17px;
+    left: 55px;
+  }
+  
+  #miniCloud:after {
+    background: -webkit-linear-gradient(#dbe4ee, #a9bbcf);
+    background: -moz-linear-gradient(#dbe4ee, #a9bbcf);
+    background: -ms-linear-gradient(#dbe4ee, #a9bbcf);
+    background: -o-linear-gradient(#dbe4ee, #a9bbcf);
+    background: linear-gradient(#dbe4ee, #a9bbcf);
+    width: 140px;
+    height: 60px;
+    top: 40px;
+    left: -15px;
+  }
+  
+  #miniDarkCloud {
+    background-color: #90a7bf;
+    width: 75px;
+    height: 75px;
+    top: -10px;
+    left: 75px;
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    transform: scale(0.75);
+    animation: cloudFloatOpposite 5s infinite linear;
+  }
+  
+  #miniDarkCloud:before {
+    background-color: #90a7bf;
+    width: 50px;
+    height: 50px;
+    top: 17px;
+    left: 55px;
+  }
+  
+  #miniDarkCloud:after {
+    background: -webkit-linear-gradient(#90a7bf, #7792af);
+    background: -moz-linear-gradient(#90a7bf, #7792af);
+    background: -ms-linear-gradient(#90a7bf, #7792af);
+    background: -o-linear-gradient(#90a7bf, #7792af);
+    background: linear-gradient(#90a7bf, #7792af);
+    width: 140px;
+    height: 60px;
+    top: 40px;
+    left: -15px;
+  }
+  
+  #cloud {
+    background-color: #dbe4ee;
+    width: 75px;
+    height: 75px;
+    top: -50px;
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    transform: scale(1.25);
+    animation: cloudFloat 5s infinite linear;
+  }
+  
+  #cloud:before {
+    background-color: #dbe4ee;
+    width: 50px;
+    height: 50px;
+    top: 17px;
+    left: 55px;
+  }
+  
+  #cloud:after {
+    background: -webkit-linear-gradient(#dbe4ee, #a9bbcf);
+    background: -moz-linear-gradient(#dbe4ee, #a9bbcf);
+    background: -ms-linear-gradient(#dbe4ee, #a9bbcf);
+    background: -o-linear-gradient(#dbe4ee, #a9bbcf);
+    background: linear-gradient(#dbe4ee, #a9bbcf);
+    width: 140px;
+    height: 60px;
+    top: 40px;
+    left: -15px;
+  }
+  
+  #raindrop1 {
+    left: -72px;
+    animation: raindrop 2s infinite linear, raindropFade 2s infinite linear;
+  }
+  
+  #raindrop2 {
+    left: -48px;
+    animation: raindropAlt 2s infinite linear, raindropFade 2s infinite linear;
+  }
+  
+  #raindrop3 {
+    left: -24px;
+    animation: raindrop 2s infinite linear, raindropFade 2s infinite linear;
+  }
+  
+  #raindrop4 {
+    left: 0px;
+    animation: raindropAlt 2s infinite linear, raindropFade 2s infinite linear;
+  }
+  
+  #darkCloud {
+    background-color: #90a7bf;
+    width: 75px;
+    height: 75px;
+    top: 0px;
+    animation: cloudFloat 5s infinite linear;
+  }
+  
+  #darkCloud:before {
+    background-color: #90a7bf;
+    width: 50px;
+    height: 50px;
+    top: 17px;
+    left: 55px;
+  }
+  
+  #darkCloud:after {
+    background: -webkit-linear-gradient(#90a7bf, #7792af);
+    background: -moz-linear-gradient(#90a7bf, #7792af);
+    background: -ms-linear-gradient(#90a7bf, #7792af);
+    background: -o-linear-gradient(#90a7bf, #7792af);
+    background: linear-gradient(#90a7bf, #7792af);
+    width: 140px;
+    height: 60px;
+    top: 40px;
+    left: -15px;
+  }
+  
+  #moon {
+    width: 100px;
+    height: 100px;
+    top: -150px;
+    left: 55px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+    position: relative;
+    box-shadow: 30px 15px 0 0 #ece4b7;
+    -webkit-transform: rotate(130deg);
+    -moz-transform: rotate(130deg);
+    -ms-transform: rotate(130deg);
+    -o-transform: rotate(130deg);
+    transform: rotate(130deg);
+    animation: moonSwing 3s infinite linear;
+  }
+  
+  #star1 {
+    top: 35px;
+    left: -100px;
+    animation: starFadeIn 5s infinite linear;
+  }
+  
+  #star2 {
+    top: -300px;
+    left: 15px;
+    animation: starFadeOut 6s infinite linear;
+  }
+  
+  #star3 {
+    top: -375px;
+    left: 50px;
+    animation: starFadeIn 7s infinite linear;
+  }
+  
+  @keyframes sunRotate {
+    from {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+      -moz-transform: rotate(359deg);
+      -ms-transform: rotate(359deg);
+      -o-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  @keyframes cloudFloat {
+    0% {
+      left: 0px;
+    }
+    50% {
+      left: 20px;
+    }
+    100% {
+      left: 0px;
+    }
+  }
+  @keyframes cloudFloatOpposite {
+    0% {
+      left: 75px;
+    }
+    50% {
+      left: 50px;
+    }
+    100% {
+      left: 75px;
+    }
+  }
+  @keyframes raindrop {
+    from {
+      top: 100px;
+    }
+    to {
+      top: 175px;
+    }
+  }
+  @keyframes raindropAlt {
+    from {
+      top: 75px;
+    }
+    to {
+      top: 150px;
+    }
+  }
+  @keyframes raindropFade {
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes moonSwing {
+    0% {
+      -webkit-transform: rotate(125deg);
+      -moz-transform: rotate(125deg);
+      -ms-transform: rotate(125deg);
+      -o-transform: rotate(125deg);
+      transform: rotate(125deg);
+    }
+    50% {
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+    100% {
+      -webkit-transform: rotate(125deg);
+      -moz-transform: rotate(125deg);
+      -ms-transform: rotate(125deg);
+      -o-transform: rotate(125deg);
+      transform: rotate(125deg);
+    }
+  }
+  @keyframes starFadeIn {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes starFadeOut {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+
+  #clear_day, #clear_night, #clouds, #cloudy_day, #rain{
+    display: none;
+  }
+
+  .i_clear_day, .i_clear_night, .i_cloud_day, .i_cloud_night, .i_clouds, .i_clear_day, .i_driz, .i_rain, .i_rain_heavy, .i_thunder, .i_snow, .i_snow_heavy, .i_wind, .i_fog, .i_ice{
+    display: none;
+  }
+
+
+
+
+.info1{
+    display: inline-block;
+    max-width: 100%;
+    justify-content: center;
+    position: absolute;
+    right: 40px;
+    /* border: 1px solid #000000; */
+    line-height: 0.5;
+}
+.info1 h1{
+    font-size: 7em;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 5px #313131;
+}
+
+.info1 p{
+    font-size: x-large;
+    color: rgb(250, 250, 250);
+    text-shadow: 1px 1px 5px #6161619d;
+}
+
+@media screen and (max-width: 576px){
+  .info1{
+    display: block;
+    position: relative;
+    right: -30px;
+  }
+  .info1 h1{
+    margin-top: -30px;
+  }
+}
+.info2{
+    display: block;
+    /* border: 1px solid #000000; */
+}
+.info2 i,h6{
+    display: inline-block;
+    color: white;
+    text-shadow: 1px 1px 5px #6161619d;
+}
+.info2 i{
+    font-size: large;
+}
+
+
+
+
+
+.card-body {
+    height: auto;
+    min-width: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+    background-color: rgba(245, 245, 245, 0.705);
+}
+.container{
+    overflow: scroll;
+    box-shadow: 2px 2px 8px #000000;
+    padding: 20px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+.card-body:hover{
+    box-shadow: 2px 2px 8px rgb(0, 0, 0);
+    transform: translateY(-10px);
+    background-color: wheat;
+}
+.footer{
+  min-width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px 5px #000000;
+  box-shadow: 2px 2px 8px #000000;
+  border-radius: 25px;
+  color: white;
+}
+
+
+
+

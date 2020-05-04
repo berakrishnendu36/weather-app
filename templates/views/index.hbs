@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YourWeather</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+
+<body>
+    <div class="stars"></div>
+    {{>header}}
+    <br><br><br><br><br>
+    <div class="container-fluid">
+        <center>
+            <h6 id="load">Loading your weather.. Please provide access to your location</h6>
+        </center>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="main">
+                    <center>
+                        <i class="fa fa-map-marker-alt head"></i>
+                        <h4 id="location">Kharagpur, West Bengal, India (Default)</h4>
+                    </center>
+                    <div class="weather-animations">
+                        {{>anim_icons}}
+                    </div>
+                    <div class="info1">
+                        <h1><span id="temp">24</span>&#8451</h1>
+                        <p id="weather_code">Mostly Cloudy</p>
+                        <p>Feels Liks: <span id="feels_like">31</span>&#8451</p>
+                    </div>
+                    <div class="info2">
+                        <i class="fas fa-wind"></i>
+                        <h6><b>Wind: </b><span id="wind_speed">4</span> km/hr, <span id="wind_direction">120</span>
+                            Degrees</h6>
+                    </div>
+                    <div class="info2">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h6><b>Precipitation: </b><span id="precipitation">10</span> mm/hr, <b>Chances: </b><span
+                                id="precipitation_probability">80</span>%</h6>
+                    </div>
+                    <div class="info2">
+                        <i class="fas fa-tint"></i>
+                        <h6><b>Humidity: </b><span id="humidity">70</span>%</h6>
+                    </div>
+                    <div class="info2">
+                        <i class="fas fa-arrow-up"></i>
+                        <h6><b>Pressure: </b><span id="baro_pressure">1005.4</span> hPa</h6>
+                    </div>
+                    <div class="info2">
+                        <i class="fas fa-eye"></i>
+                        <h6><b>Visibility: </b><span id="visibility">11</span> km</h6>
+                    </div>
+                    <div class="info2">
+                        <i class="fas fa-cloud"></i>
+                        <h6><b>Cloud Cover: </b><span id="cloud_cover">40</span>%</h6>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+            <div class="col-xl-6">
+                <br>
+                <center>
+                    <h1 style="color: white; text-shadow: 1px 1px 8px rgb(0, 0, 0);">Hourly Forecasts</h1>
+                </center>
+                <div class="container">
+                    <div class="d-flex flex-row flex-nowrap">
+                        <div class="card card-body">
+                            <center>
+                                <h2 class="thrs">1 Hrs</h2>
+                                <h2><span class="htmp">26</span>&#8451</h2>
+                                {{>static_icons}}
+                                <p class="hwcode">Mostly Cloudy</p>
+                                <p>Feels Like <span class="hflike">25</span>&#8451</p>
+                                <p><span class="hpc">60</span>% Chances of Rain</p>
+                            </center>
+                        </div>
+                        <div class="card card-body">
+                            <center>
+                                <h2 class="thrs">2 Hrs</h2>
+                                <h2><span class="htmp">26</span>&#8451</h2>
+                                {{>static_icons}}
+                                <p class="hwcode">Mostly Cloudy</p>
+                                <p>Feels Like <span class="hflike">25</span>&#8451</p>
+                                <p><span class="hpc">60</span>% Chances of Rain</p>
+                            </center>
+                        </div>
+                        <div class="card card-body">
+                            <center>
+                                <h2 class="thrs">3 Hrs</h2>
+                                <h2><span class="htmp">26</span>&#8451</h2>
+                                {{>static_icons}}
+                                <p class="hwcode">Mostly Cloudy</p>
+                                <p>Feels Like <span class="hflike">25</span>&#8451</p>
+                                <p><span class="hpc">60</span>% Chances of Rain</p>
+                            </center>
+                        </div>
+                        <div class="card card-body">
+                            <center>
+                                <h2 class="thrs">4 Hrs</h2>
+                                <h2><span class="htmp">26</span>&#8451</h2>
+                                {{>static_icons}}
+                                <p class="hwcode">Mostly Cloudy</p>
+                                <p>Feels Like <span class="hflike">25</span>&#8451</p>
+                                <p><span class="hpc">60</span>% Chances of Rain</p>
+                            </center>
+                        </div>
+                        <div class="card card-body">
+                            <center>
+                                <h2 class="thrs">5 Hrs</h2>
+                                <h2><span class="htmp">26</span>&#8451</h2>
+                                {{>static_icons}}
+                                <p class="hwcode">Mostly Cloudy</p>
+                                <p>Feels Like <span class="hflike">25</span>&#8451</p>
+                                <p><span class="hpc">60</span>% Chances of Rain</p>
+                            </center>
+                        </div>
+                        <div class="card card-body">
+                            <center>
+                                <h2 class="thrs">6 Hrs</h2>
+                                <h2><span class="htmp">26</span>&#8451</h2>
+                                {{>static_icons}}
+                                <p class="hwcode">Mostly Cloudy</p>
+                                <p>Feels Like <span class="hflike">25</span>&#8451</p>
+                                <p><span class="hpc">60</span>% Chances of Rain</p>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                {{>footer}}
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <script src="./js/script.js" type="text/javascript"></script>
+</body>
+
+</html>
