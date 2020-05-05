@@ -53,7 +53,7 @@ let sr, ss;
 var d = new Date();
 const hr = d.getHours()
 const min = d.getMinutes()
-var id;
+var id = [];
 
 function bgChange() {
     if (hr >= 4 && hr < 16) {
@@ -156,7 +156,6 @@ function search() {
                 document.getElementById("load").innerHTML = "Searching and accessing Weather Data.. Please wait.";
                 console.log(data)
                 document.getElementById("location").innerHTML = data.location;
-                const temp = id;
                 var tmp = document.getElementsByClassName("anim")
                 for (let i = 0; i < tmp.length; i++) {
                     tmp[i].style.display = "none"
@@ -174,7 +173,6 @@ function search() {
                             console.log(rdata)
                             rchange(rdata)
                             ichange(rdata)
-                            document.getElementById(temp).style.display = "none"
                         }
                     })
                 })
@@ -220,27 +218,29 @@ function ichange(data) {
     if (val === 'clear' || val === 'mostly_clear') {
         if (h >= sr && h < ss) {
             document.getElementById("clear_day").style.display = "block";
-            id = "clear_day"
+            id.push("clear_day")
         }
         else {
             document.getElementById("clear_night").style.display = "block";
-            id = "clear_night"
+            id.push("clear_night")
         }
     }
     else if (val === 'partly_cloudy' || val === 'cloudy') {
         if (h >= sr && h < ss) {
             document.getElementById("cloudy_day").style.display = "block";
-            id = "cloudy_day"
+            id.push("cloudy_day")
         }
         else {
             document.getElementById("clouds").style.display = "block";
-            id = "clouds"
+            id.push("clouds")
         }
     }
     else {
         document.getElementById(desc[val][0].toString()).style.display = "block";
-        id = desc[val][0].toString()
+        id.push(desc[val][0].toString())
     }
+
+    document.getElementById(id[id.length - 2]).style.display = "none";
 }
 
 function hchange(data) {
