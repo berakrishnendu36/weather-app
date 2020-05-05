@@ -665,7 +665,22 @@ body{
 
 
 
-
+.align-center .element {
+  scroll-snap-align: center;
+}
+.align-center{
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: both mandatory;
+  scroll-snap-points-x: repeat(200px);
+}
+.element{
+  scroll-snap-stop: normal;
+}
+.align-center .wrapper {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-gap: 10px;
+}
 .card-body {
     height: auto;
     min-width: 200px;
@@ -681,6 +696,9 @@ body{
     border-radius: 40px;
     margin-bottom: 20px;
 }
+
+
+
 .card-body:hover{
     box-shadow: 2px 2px 8px rgb(0, 0, 0);
     transform: translateY(-10px);
