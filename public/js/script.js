@@ -53,11 +53,12 @@ let sr, ss;
 var d = new Date();
 const hr = d.getHours()
 const min = d.getMinutes()
+var id;
 
 function bgChange() {
     if (hr >= 4 && hr < 16) {
         document.body.style.background = bgData[hr - 4];
-        if (hr - 4 > 6) {
+        if (hr - 4 >= 6) {
             document.getElementsByClassName("stars")[0].style.display = "none"
         }
     }
@@ -79,9 +80,11 @@ function bgChange() {
     }
     if (hr == 18 && (min >= 0 && min <= 30)) {
         document.body.style.background = bgData[hr - 2];
+        document.getElementsByClassName("stars")[0].style.display = "block"
     }
     if (hr == 18 && (min > 30 && min <= 59)) {
         document.body.style.background = bgData[hr - 1];
+        document.getElementsByClassName("stars")[0].style.display = "block"
     }
 
 }
@@ -153,6 +156,7 @@ function search() {
                 document.getElementById("load").innerHTML = "Searching and accessing Weather Data.. Please wait.";
                 console.log(data)
                 document.getElementById("location").innerHTML = data.location;
+                const temp = id;
                 var tmp = document.getElementsByClassName("anim")
                 for (let i = 0; i < tmp.length; i++) {
                     tmp[i].style.display = "none"
@@ -170,6 +174,7 @@ function search() {
                             console.log(rdata)
                             rchange(rdata)
                             ichange(rdata)
+                            document.getElementById(temp).style.display = "none"
                         }
                     })
                 })
@@ -212,25 +217,29 @@ function ichange(data) {
     sr = sr.getHours()
     ss = ss.getHours()
     const val = data.weather_code.value
-
     if (val === 'clear' || val === 'mostly_clear') {
         if (h >= sr && h < ss) {
             document.getElementById("clear_day").style.display = "block";
+            id = "clear_day"
         }
         else {
             document.getElementById("clear_night").style.display = "block";
+            id = "clear_night"
         }
     }
     else if (val === 'partly_cloudy' || val === 'cloudy') {
         if (h >= sr && h < ss) {
             document.getElementById("cloudy_day").style.display = "block";
+            id = "cloudy_day"
         }
         else {
             document.getElementById("clouds").style.display = "block";
+            id = "clouds"
         }
     }
     else {
         document.getElementById(desc[val][0].toString()).style.display = "block";
+        id = desc[val][0].toString()
     }
 }
 

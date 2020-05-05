@@ -10,7 +10,8 @@ body{
     background: -webkit-linear-gradient(to top, #283E51, #0A2342);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #283E51, #0A2342); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: -olinear-gradient(to top, #283E51, #0A2342); 
-    height: 100vh;
+  
+    background-size: 400% 400%;
 
     font-family: 'Roboto', sans-serif;
 }
@@ -689,6 +690,7 @@ body{
   min-width: 100%;
   padding: 10px;
   margin-top: 30px;
+  margin-bottom: 30px;
   background-color: rgba(255, 255, 255, 0.5);
   text-shadow: 1px 1px 5px #000000;
   box-shadow: 2px 2px 8px #000000;
