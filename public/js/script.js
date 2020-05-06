@@ -127,6 +127,7 @@ function getLocation() {
                     }
                 })
             })
+            mapdata(position.coords.latitude, position.coords.longitude)
         }, gerror, { enableHighAccuracy: true, timeout: 10 * 10 * 1000, maximumAge: 0 })
     } else {
         console.log("Geolocation is not supported by this browser.")
@@ -143,6 +144,31 @@ function gerror(error) {
 }
 
 getLocation()
+
+function mapdata(lati, long) {
+    var osm = [
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://osm.org/copyright" target = "_blank">OpenStreetMap</a> contributors'
+        }),
+        L.tileLayer('https://tile.openweathermap.org/map/precipitation/{z}/{x}/{y}.png?appid=864f687c1148ce7e34d849b322e08f43', {
+            maxZoom: 18,
+            opacity: 0.7,
+            attribution: '&copy; <a href="http://osm.org/copyright" target = "_blank">OpenStreetMap</a> contributors'
+        })
+    ];
+    var markerIcon = L.icon({
+        iconUrl: '../img/marker-icon.png',
+        iconSize: [20, 30],
+        iconAnchor: [10, 30],
+    })
+
+    var map = L.map('map', { center: new L.LatLng(lati, long), zoom: 7, layers: osm, showLegend: true });
+    // var baseMaps = { "OSM Standard": osm };
+    L.marker([lati, long], { icon: markerIcon }).addTo(map);
+    var layerControl = L.control.layers().addTo(map);
+}
 
 function search() {
     var addr = document.getElementById("srch").value;
