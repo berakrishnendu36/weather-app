@@ -92,7 +92,7 @@ body{
 }
 .main{
     /* min-height: 500px; */
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(197, 197, 197, 0.6);
     box-shadow: 2px 2px 8px #000000;
     border-radius: 40px;
     padding: 20px;
@@ -690,8 +690,7 @@ body{
     transition: 0.5s;
     background-color: rgba(245, 245, 245, 0.705);
     line-height: 0.4;
-    color: #ffffff;
-    text-shadow: 1px 1px 5px #000000;
+    color: #000000;
 }
 .card-body .fas{
   margin-bottom: 15px;
