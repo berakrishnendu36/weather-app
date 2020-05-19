@@ -48,9 +48,9 @@ body{
     background-color: rgb(206, 232, 255);
     box-shadow: 2px 2px 8px #000000;
     position: fixed;
-    opacity: 0.9;
+    opacity: 1;
     width: 100%;
-    z-index: 4;
+    z-index: 1000;
 }
 .nav-item{
     display: inline-block;
@@ -615,6 +615,10 @@ body{
     display: none;
   }
 
+  .i_clear_dayd, .i_clear_nightd, .i_cloud_dayd, .i_cloud_nightd, .i_cloudsd, .i_drizd, .i_raind, .i_rain_heavyd, .i_thunderd, .i_snowd, .i_snow_heavyd, .i_windd, .i_fogd, .i_iced{
+    display: none;
+  }
+
 
 
 
@@ -683,13 +687,14 @@ body{
   grid-gap: 10px;
 }
 .card-body {
+    min-width: 180px;
     height: auto;
-    min-width: 200px;
-    margin: 10px;
+    margin: 5px;
+    padding: 10px;
     border-radius: 20px;
     transition: 0.5s;
     background-color: rgba(245, 245, 245, 0.705);
-    line-height: 0.4;
+    line-height: 0.6;
     color: #000000;
 }
 .card-body .fas{
@@ -725,7 +730,7 @@ body{
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(201, 201, 201, 0.616);
   text-shadow: 1px 1px 2px #000000;
   box-shadow: 2px 2px 8px #000000;
   border-radius: 25px;

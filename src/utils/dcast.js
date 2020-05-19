@@ -3,7 +3,7 @@ var request = require("request");
 const hcast = (lat, lon, callback) => {
     var options = {
         method: 'GET',
-        url: 'https://api.climacell.co/v3/weather/forecast/hourly',
+        url: 'https://api.climacell.co/v3/weather/forecast/daily',
         qs: {
             lat: lat.toString(),
             lon: lon.toString(),
@@ -17,14 +17,14 @@ const hcast = (lat, lon, callback) => {
 
     request(options, function (error, { body }) {
         if (error) {
-            callback('Unable to retrieve hourly data', undefined)
+            callback('Unable to retrieve daily data', undefined)
         }
         else {
-            const hdata = []
+            const ddata = []
             for (let i = 0; i <= 8; i++) {
-                hdata.push(body[i])
+                ddata.push(body[i])
             }
-            callback(undefined, hdata)
+            callback(undefined, ddata)
         }
     });
 }

@@ -99,7 +99,7 @@ function getLocation() {
                         console.log(data.error)
                     }
                     else {
-                        console.log(data)
+                        // console.log(data)
                         rchange(data)
                         ichange(data)
                     }
@@ -111,7 +111,7 @@ function getLocation() {
                         console.log(data.error)
                     }
                     else {
-                        console.log(data)
+                        // console.log(data)
                         document.getElementById("location").innerHTML = data.location;
                     }
                 })
@@ -122,8 +122,19 @@ function getLocation() {
                         console.log(data.error)
                     }
                     else {
-                        console.log(data)
+                        // console.log(data)
                         hchange(data)
+                    }
+                })
+            })
+            fetch('/weather/ddata?latitude=' + encodeURIComponent(position.coords.latitude) + '&longitude=' + encodeURIComponent(position.coords.longitude)).then((response) => {
+                response.json().then((data) => {
+                    if (data.error) {
+                        console.log(data.error)
+                    }
+                    else {
+                        // console.log(data)
+                        dchange(data)
                     }
                 })
             })
@@ -182,11 +193,11 @@ function search() {
                 document.getElementById("load").innerHTML = "Searching and accessing Weather Data.. Please wait.";
                 console.log(data)
                 document.getElementById("location").innerHTML = data.location;
-                var tmp = document.getElementsByClassName("anim")
-                for (let i = 0; i < tmp.length; i++) {
-                    tmp[i].style.display = "none"
-                }
-                tmp = document.getElementsByClassName("stat")
+                // var tmp = document.getElementsByClassName("anim")
+                // for (let i = 0; i < tmp.length; i++) {
+                //     tmp[i].style.display = "none"
+                // }
+                var tmp = document.getElementsByClassName("stat")
                 for (let i = 0; i < tmp.length; i++) {
                     tmp[i].style.display = "none"
                 }
@@ -196,7 +207,7 @@ function search() {
                             console.log(rdata.error)
                         }
                         else {
-                            console.log(rdata)
+                            // console.log(rdata)
                             rchange(rdata)
                             ichange(rdata)
                         }
@@ -209,8 +220,19 @@ function search() {
                             console.log(hdata.error)
                         }
                         else {
-                            console.log(hdata)
+                            // console.log(hdata)
                             hchange(hdata)
+                        }
+                    })
+                })
+                fetch('/weather/ddata?latitude=' + encodeURIComponent(data.latitude) + '&longitude=' + encodeURIComponent(data.longitude)).then((response) => {
+                    response.json().then((data) => {
+                        if (data.error) {
+                            console.log(data.error)
+                        }
+                        else {
+                            // console.log(data)
+                            dchange(data)
                         }
                     })
                 })
@@ -265,8 +287,9 @@ function ichange(data) {
         document.getElementById(desc[val][0].toString()).style.display = "block";
         id.push(desc[val][0].toString())
     }
-
-    document.getElementById(id[id.length - 2]).style.display = "none";
+    if (id.length - 2 >= 0) {
+        document.getElementById(id[id.length - 2]).style.display = "none";
+    }
 }
 
 function hchange(data) {
@@ -277,7 +300,7 @@ function hchange(data) {
     var fl = document.getElementsByClassName("hflike");
     var pc = document.getElementsByClassName("hpc");
     var code = document.getElementsByClassName("hwcode");
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
         h++;
         if (h == 24) {
             h = 0;
@@ -313,5 +336,40 @@ function hchange(data) {
         }
     }
     document.getElementById("precipitation_probability").innerHTML = data[0].precipitation_probability.value;
+}
+
+function dchange(data) {
+
+    var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    var ele = document.getElementsByClassName("day");
+    var tmph = document.getElementsByClassName("dtmph");
+    var tmpl = document.getElementsByClassName("dtmpl");
+    var flh = document.getElementsByClassName("dflikeh");
+    var fll = document.getElementsByClassName("dflikel");
+    var pc = document.getElementsByClassName("dpc");
+    var code = document.getElementsByClassName("dwcode");
+
+    for (let i = 0; i < 7; i++) {
+        var d = new Date(data[i + 1].observation_time.value)
+        ele[i].innerHTML = day[d.getDay()] + '<br>' + d.getDate() + '/' + (d.getMonth() + 1);
+        tmph[i].innerHTML = parseInt(data[i + 1].temp[1].max.value)
+        tmpl[i].innerHTML = parseInt(data[i + 1].temp[0].min.value)
+        flh[i].innerHTML = parseInt(data[i + 1].feels_like[1].max.value)
+        fll[i].innerHTML = parseInt(data[i + 1].feels_like[0].min.value)
+        pc[i].innerHTML = data[i + 1].precipitation_probability.value;
+        code[i].innerHTML = desc[data[i + 1].weather_code.value][1];
+
+        const val = data[i + 1].weather_code.value
+        if (val === 'clear' || val === 'mostly_clear') {
+            document.getElementsByClassName("i_clear_dayd")[i].style.display = "block";
+        }
+        else if (val === 'partly_cloudy' || val === 'cloudy') {
+            document.getElementsByClassName("i_cloud_dayd")[i].style.display = "block";
+        }
+        else {
+            document.getElementsByClassName(desc[val][2].toString() + 'd')[i].style.display = "block"
+
+        }
+    }
 }
 

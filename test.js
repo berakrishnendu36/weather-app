@@ -24,7 +24,5 @@ const desc = {
     clear: ['clear', 'Mostly Clear']
 }
 
-var d = new Date()
-console.log(d.getHours())
-console.log(d.getMinutes())
-console.log(parseInt(11 / 12))
+var d = new Date('2020-01-20')
+console.log(d.getMonth())

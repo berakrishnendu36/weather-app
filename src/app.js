@@ -3,6 +3,7 @@ const forecast = require('./utils/forecast')
 const forecast_new = require('./utils/forecast_new')
 const geocode_rev = require('./utils/geocode_rev')
 const hcast = require('./utils/hcast')
+const dcast = require('./utils/dcast')
 
 const port = process.env.PORT || 3000
 
@@ -93,6 +94,18 @@ app.get('/weather/hdata', (req, res) => {
             return res.send({ error: error })
         }
         res.send(hdata)
+    })
+})
+
+app.get('/weather/ddata', (req, res) => {
+    if (!(req.query.latitude && req.query.longitude)) {
+        return res.send({ error: 'Cannot Access Your Location' })
+    }
+    dcast(req.query.latitude, req.query.longitude, (error, ddata) => {
+        if (error) {
+            return res.send({ error: error })
+        }
+        res.send(ddata)
     })
 })
 
