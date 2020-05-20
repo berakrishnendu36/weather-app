@@ -50,7 +50,7 @@ body{
     position: fixed;
     opacity: 1;
     width: 100%;
-    z-index: 1000;
+    z-index: 10000000;
 }
 .nav-item{
     display: inline-block;
@@ -694,7 +694,6 @@ body{
     border-radius: 20px;
     transition: 0.5s;
     background-color: rgba(245, 245, 245, 0.705);
-    line-height: 0.6;
     color: #000000;
 }
 .card-body .fas{

@@ -246,7 +246,7 @@ function rchange(data) {
     document.getElementById("temp").innerHTML = data.temp.value;
     document.getElementById("weather_code").innerHTML = desc[data.weather_code.value][1];
     document.getElementById("feels_like").innerHTML = data.feels_like.value;
-    document.getElementById("wind_speed").innerHTML = data.wind_speed.value * 3.6;
+    document.getElementById("wind_speed").innerHTML = parseInt(data.wind_speed.value * 3.6);
     document.getElementById("wind_direction").innerHTML = data.wind_direction.value;
     document.getElementById("precipitation").innerHTML = data.precipitation.value;
     document.getElementById("humidity").innerHTML = data.humidity.value;
